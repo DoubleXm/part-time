@@ -8,6 +8,11 @@ class PricticeCtrl {
     const v = PricticeService.pricticeClassify();
     ctx.body = JSONResolve.json(v);
   }
+  // 城市分类接口
+  async parttimeClassify(ctx) {
+    const v = await PricticeService.parttimeClassify(ctx)
+    ctx.body = JSONResolve.json(v)
+  }
 
   // 实习/兼职创建
   async createPrictice(ctx) {
@@ -20,17 +25,19 @@ class PricticeCtrl {
       shop_name: validate.shop_name,
       post: validate.post,
       company_auth: validate.company_auth,
-      address: validate.address,
+      cityName: validate.cityName,
+      areaName: validate.areaName
     });
 
     const v = await PricticeService.createPrictice(ctx);
     ctx.body = JSONResolve.json(v);
   }
-  // 获取实习列表
+  // 获取实习/兼职列表
   async getPrictice(ctx) {
     const v = await PricticeService.getPrictice(ctx);
     ctx.body = JSONResolve.json(v);
   }
+
 }
 
 module.exports = new PricticeCtrl();

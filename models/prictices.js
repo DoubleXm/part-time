@@ -42,7 +42,8 @@ Prictice.init({
     defaultValue: 0,
     comment: '企业认证 1: 认证; 0: 未认证'
   },
-  address: DataTypes.STRING
+  cityName: DataTypes.STRING,
+  areaName: DataTypes.STRING
 }, {
   sequelize,
   modelName: 'prictice',

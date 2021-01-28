@@ -1,5 +1,6 @@
 const Prictice = require("../models/prictices");
 const { Op } = require("sequelize");
+const cityList = require("../config/addr.json");
 
 class PricticeService {
   pricticeClassify() {
@@ -30,6 +31,20 @@ class PricticeService {
       ],
     };
   }
+  // 获取兼职地址分类列表
+  async parttimeClassify(ctx) {
+    const { city_name } = ctx.query;
+
+    if (!city_name) ctx.throw(412, "请输入城市名");
+    for (let province = 0; province < cityList.length; province++) {
+      const citys = cityList[province].mallCityList;
+      for (let city = 0; city < citys.length; city++) {
+        if (citys[city].cityName === city_name) {
+          return { rows: citys[city].mallAreaList };
+        }
+      }
+    }
+  }
 
   async createPrictice(ctx) {
     const {
@@ -41,7 +56,8 @@ class PricticeService {
       shop_name,
       post,
       company_auth,
-      address
+      cityName,
+      areaName,
     } = ctx.request.body;
     const data = await Prictice.create({
       category,
@@ -52,7 +68,8 @@ class PricticeService {
       shop_name,
       post,
       company_auth,
-      address
+      cityName,
+      areaName,
     });
     return { info: { ...data.toJSON() } };
   }
@@ -63,6 +80,11 @@ class PricticeService {
      * @param offset 页码
      * @param sort 排序字段
      * @param order ASC | DESC
+     * @param category 实习 根据 分类 查询
+     * @param salary 实习 根据 工资查询
+     * @param begin_time 实习 开始时间筛选
+     * @param end_time 实习 结束时间筛选
+     * @param area_name 兼职 区 筛选
      */
     let {
       limit,
@@ -73,6 +95,7 @@ class PricticeService {
       salary,
       begin_time,
       end_time,
+      area_name
     } = ctx.query;
     // 给定初始值
     !limit ? (limit = 10) : (limit = parseInt(limit));
@@ -82,7 +105,7 @@ class PricticeService {
     // where 对象构建
     let sql;
     const whereCondition = {};
-    if (begin_time || end_time || salary || category) {
+    if (begin_time || end_time || salary || category || area_name) {
       if (category && category.trim()) {
         whereCondition[Op.or] = [{ category }];
       }
@@ -93,6 +116,9 @@ class PricticeService {
       if (begin_time && end_time) {
         whereCondition.begin_time = { [Op.gte]: new Date(Number(begin_time)) };
         whereCondition.end_time = { [Op.lte]: new Date(Number(end_time)) };
+      }
+      if (area_name && area_name.trim()) {
+        whereCondition[Op.or] = [{ area_name }];
       }
       // console.log({ ...whereCondition })
       sql = {
