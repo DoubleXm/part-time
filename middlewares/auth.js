@@ -1,9 +1,7 @@
-const jwt = require('koa-jwt')
-const { secret } = require('../config')
+const jwt = require("koa-jwt");
+const { secret } = require("../config");
+const auth = jwt({ secret });
 
 module.exports = {
-  // 鉴权   
-  async auth() {  
-    return jwt({ secret })
-  }
-}
+  auth,
+};
