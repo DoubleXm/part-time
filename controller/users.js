@@ -46,6 +46,26 @@ class UserCtrl {
     const v = await UserService.getUser(ctx);
     ctx.body = JSONResolve.json(v);
   }
+
+  async getUserById(ctx) {
+    const v = await UserService.getUserById(ctx);
+    ctx.body = JSONResolve.json(v);
+  }
+  // 添加好友
+  async addFriend(ctx) {
+    await UserService.addFriend(ctx)
+    ctx.body = JSONResolve.success()
+  }
+  // 删除好友
+  async delFriend(ctx) {
+    await UserService.delFriend(ctx)
+    ctx.body = JSONResolve.success()
+  }
+  // 获取好友列表
+  async getFriend(ctx) {
+    const v = await UserService.getFriend(ctx)
+    ctx.body = JSONResolve.json(v)
+  }
 }
 
 module.exports = new UserCtrl();
