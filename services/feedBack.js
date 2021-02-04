@@ -76,6 +76,7 @@ class FeedBackService {
         where: { ...whereCondition },
         limit,
         offset: (offset - 1) * limit,
+        sort,
         order: [[sort, order]],
         paranoid: false // 获取已经被删除的行
       };
@@ -89,7 +90,7 @@ class FeedBackService {
       };
     }
 
-    const total = await FeedBack.count();
+    const total = await FeedBack.count({ paranoid: false });
     const data = await FeedBack.findAll({ ...sql });
     return {
       total,

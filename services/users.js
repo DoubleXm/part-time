@@ -189,7 +189,7 @@ class UserService {
     return {
       total,
       isNext:
-        rows.length > limit * (offset - 1 === 0 ? 1 : offset - 1)
+        total > limit * (offset - 1 === 0 ? 1 : offset - 1)
           ? true
           : false,
       rows,
@@ -272,7 +272,7 @@ class UserService {
       };
     }
 
-    const total = await User.count();
+    const total = await User.count({paranoid: false});
     const data = await User.findAll(sql);
     return {
       total,
