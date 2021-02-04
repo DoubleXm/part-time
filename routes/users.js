@@ -9,7 +9,11 @@ router.post("/login", UserCtrl.login); // 登录
 
 router.post('/friend', auth, UserCtrl.addFriend); // 添加好友
 router.get('/friend', auth, UserCtrl.getFriend); // 获取好友列表
-router.delete('/friend/:id', auth, UserCtrl.delFriend); // 删除好友
+router.delete('/friend/:id', auth, UserCtrl.delFriend); // 
+
+// admin 
+router.get('/admin', auth, UserCtrl.getAdminUser); // 获取用户列表
+router.delete('/admin/:id', auth, UserCtrl.delAdminUser); // 删除用户
 
 router.put("/", auth, UserCtrl.editUser); // 编辑个人资料
 router.get("/", auth, UserCtrl.getUser); // 获取个人资料

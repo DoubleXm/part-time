@@ -66,6 +66,17 @@ class UserCtrl {
     const v = await UserService.getFriend(ctx)
     ctx.body = JSONResolve.json(v)
   }
+
+  // admin 获取用户列表
+  async getAdminUser(ctx) {
+    const v = await UserService.getAdminUser(ctx);
+    ctx.body = JSONResolve.json(v);
+  }
+
+  async delAdminUser(ctx) {
+    await UserService.delAdminUser(ctx)
+    ctx.body = JSONResolve.success()
+  }
 }
 
 module.exports = new UserCtrl();

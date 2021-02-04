@@ -1,6 +1,7 @@
 const User = require("../models/users");
 const Friend = require("../models/friends");
 const jsonwebtoken = require("jsonwebtoken");
+const { Op } = require("sequelize");
 const { secret } = require("../config");
 const crypto = require("crypto");
 class UserService {
@@ -172,15 +173,15 @@ class UserService {
     // 由于没有做关联表 设计失败了; findOne一次只查询一个, 最后 push 之后无法再做分页逻辑
     for (let i = 0; i < friend_ids.length; i++) {
       let ret = JSON.parse(
-          JSON.stringify(
-            await User.findOne({
-              where: { id: friend_ids[i].friend_id },
-              limit,
-              offset: (offset - 1) * limit,
-              order: [[sort, order]],
-            })
-          )
-        );
+        JSON.stringify(
+          await User.findOne({
+            where: { id: friend_ids[i].friend_id },
+            limit,
+            offset: (offset - 1) * limit,
+            order: [[sort, order]],
+          })
+        )
+      );
       ret.isFriend = 1;
       rows.push(ret);
     }
@@ -193,6 +194,98 @@ class UserService {
           : false,
       rows,
     };
+  }
+
+  // admin
+  async getAdminUser(ctx) {
+    /**
+     * @param limit 每页条目数
+     * @param offset 页码
+     * @param sort 排序字段
+     * @param order ASC | DESC
+     * @param begin_time  开始时间筛选
+     * @param end_time  结束时间筛选
+     */
+    let {
+      limit,
+      offset,
+      sort,
+      order,
+      begin_time,
+      end_time,
+      phone_number,
+      nick_name,
+      description,
+      gender,
+      school,
+    } = ctx.query;
+    // 给定初始值
+    !limit ? (limit = 10) : (limit = parseInt(limit));
+    !offset ? (offset = 1) : (offset = parseInt(offset));
+    !sort ? (sort = "created_at") : sort;
+    !order ? (order = "DESC") : order;
+    // where 对象构建
+    let sql;
+    const whereCondition = {};
+    if (
+      begin_time ||
+      end_time ||
+      phone_number ||
+      nick_name ||
+      description ||
+      gender ||
+      school
+    ) {
+      if (begin_time && end_time) {
+        whereCondition.begin_time = { [Op.gte]: new Date(Number(begin_time)) };
+        whereCondition.end_time = { [Op.lte]: new Date(Number(end_time)) };
+      }
+      if (phone_number) {
+        whereCondition.phone_number = { [Op.eq]: phone_number };
+      }
+      if (nick_name) {
+        whereCondition.nick_name = { [Op.eq]: nick_name };
+      }
+      if (description) {
+        whereCondition.description = { [Op.like]: description };
+      }
+      if (gender) {
+        whereCondition.gender = { [Op.eq]: gender };
+      }
+      if (school) {
+        whereCondition.school = { [Op.eq]: school };
+      }
+      // console.log({ ...whereCondition })
+      sql = {
+        where: { ...whereCondition },
+        limit,
+        offset: (offset - 1) * limit,
+        order: [[sort, order]],
+        paranoid: false
+      };
+    } else {
+      sql = {
+        limit,
+        offset: (offset - 1) * limit,
+        order: [[sort, order]],
+        paranoid: false
+      };
+    }
+
+    const total = await User.count();
+    const data = await User.findAll(sql);
+    return {
+      total,
+      isNext:
+        total > limit * (offset - 1 === 0 ? 1 : offset - 1) ? true : false,
+      rows: [...data],
+    };
+  }
+  async delAdminUser(ctx) {
+    const ids = ctx.params.id.split(",");
+    for (let i = 0; i < ids.length; i++) {
+      await User.destroy({ where: { id: ids[i] } });
+    }
   }
 }
 
