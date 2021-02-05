@@ -1,0 +1,1060 @@
+{
+	"info": {
+		"_postman_id": "82904925-9b5d-42ce-886f-500a2d412c09",
+		"name": "part-time",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "登录",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone_number\": \"18516321273\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/user/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "注册",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nick_name\": \"reg user\",\r\n    \"phone_number\": \"17521854869\",\r\n    \"password\": \"123465\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/user/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "编辑个人资料",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"avatar\": \"http://www.bai\",\r\n    \"nick_name\": \"修改名字\",\r\n    \"real_name\": \"真实姓名\",\r\n    \"autograph\": \"签名信息\",\r\n    \"age\": 23,\r\n    \"gender\": 2,\r\n    \"height\": \"173\",\r\n    \"phone_number\": \"18516321273\",\r\n    \"school\": \"学校\",\r\n    \"experience\": \"个人经历\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取个人资料",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEwOTM2NzExLCJleHAiOjE2MTEwMjMxMTF9.5ZIGXjB-tUhGPCDTiprbIkMkalHop7lPiLE8UMFdfw8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/user",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "提交反馈",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyNDIwMTU3LCJleHAiOjE2MTI1MDY1NTd9.e2gpt2IymgqEH1J-dvAcmuLaJ5dBfO55aD3HIWzweqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"feedback\": \"测试反馈内容3\",\r\n    \"feed_image\": \"新的反馈图片\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/feedback",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"feedback"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定用户",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyMTUwNTM0LCJleHAiOjE2MTIyMzY5MzR9.e3fygD-hdv0CnpqpZSH6CTI0VSB4CHbXcp0SEEg_gqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/user/31801830-5956-11eb-ac53-350c95aeab90",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user",
+								"31801830-5956-11eb-ac53-350c95aeab90"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "添加好友",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyMTUwNTM0LCJleHAiOjE2MTIyMzY5MzR9.e3fygD-hdv0CnpqpZSH6CTI0VSB4CHbXcp0SEEg_gqw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"friend_id\": \"4cbff280-56fb-11eb-9cf9-5f80e57d7a25\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/user/friend",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user",
+								"friend"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取好友列表",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyMzE1MTQ1LCJleHAiOjE2MTI0MDE1NDV9.-cmJe9F5Wbvibv3mOglv0XKNr5Iccdzoxmf1wJ6uibo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/user/friend?limit=1&offset=1&sort=nick_name&order=DESC",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user",
+								"friend"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "nick_name"
+								},
+								{
+									"key": "order",
+									"value": "DESC"
+								},
+								{
+									"key": "q",
+									"value": "reg",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "删除好友",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyMzE1MTQ1LCJleHAiOjE2MTI0MDE1NDV9.-cmJe9F5Wbvibv3mOglv0XKNr5Iccdzoxmf1wJ6uibo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/user/friend/4cbff280-56fb-11eb-9cf9-5f80e57d7a25",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user",
+								"friend",
+								"4cbff280-56fb-11eb-9cf9-5f80e57d7a25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 删除用户",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyMzE1MTQ1LCJleHAiOjE2MTI0MDE1NDV9.-cmJe9F5Wbvibv3mOglv0XKNr5Iccdzoxmf1wJ6uibo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/user/admin/4cbff280-56fb-11eb-9cf9-5f80e57d7a25",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user",
+								"admin",
+								"4cbff280-56fb-11eb-9cf9-5f80e57d7a25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 获取用户列表",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyNDIwMTU3LCJleHAiOjE2MTI1MDY1NTd9.e2gpt2IymgqEH1J-dvAcmuLaJ5dBfO55aD3HIWzweqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/user/admin/?limit=10&offset=1&order=&begin_time=&end_time=&phone_number=&nick_name=&description=&gender=&school=",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"user",
+								"admin",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "update_at",
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": ""
+								},
+								{
+									"key": "begin_time",
+									"value": ""
+								},
+								{
+									"key": "end_time",
+									"value": ""
+								},
+								{
+									"key": "phone_number",
+									"value": ""
+								},
+								{
+									"key": "nick_name",
+									"value": ""
+								},
+								{
+									"key": "description",
+									"value": ""
+								},
+								{
+									"key": "gender",
+									"value": ""
+								},
+								{
+									"key": "school",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 获取反馈列表",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyNDIwMTU3LCJleHAiOjE2MTI1MDY1NTd9.e2gpt2IymgqEH1J-dvAcmuLaJ5dBfO55aD3HIWzweqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/feedback/admin?limit=10000&offset=1",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"feedback",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10000"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "order",
+									"value": "DESC",
+									"disabled": true
+								},
+								{
+									"key": "feedback",
+									"value": "root 用户创建的反馈",
+									"disabled": true
+								},
+								{
+									"key": "phone_number",
+									"value": "18516321273",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 删除反馈",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyNDIwMTU3LCJleHAiOjE2MTI1MDY1NTd9.e2gpt2IymgqEH1J-dvAcmuLaJ5dBfO55aD3HIWzweqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/feedback/admin/ed1f7505-aec8-46be-9a3e-0bf4067a80b9,54ca5da9-b0a2-444e-82a0-564256d20360",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"feedback",
+								"admin",
+								"ed1f7505-aec8-46be-9a3e-0bf4067a80b9,54ca5da9-b0a2-444e-82a0-564256d20360"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "宝典列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/course?limit=12&offset=2&sort=title&order=ASC",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"course"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "12"
+								},
+								{
+									"key": "offset",
+									"value": "2"
+								},
+								{
+									"key": "sort",
+									"value": "title"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定宝典",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/course/a8b73d3b-10f7-4254-9875-8584d37c0bee",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"course",
+								"a8b73d3b-10f7-4254-9875-8584d37c0bee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 获取宝典列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/course/admin/?limit=20&offset=1&sort=title&order=ASC",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"course",
+								"admin",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "title"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 修改宝典",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"a7df4391-fc54-446a-9a25-47f7deba9815\",\r\n    \"title\": \"修改宝典1\",\r\n    \"content\": \"修改的内容\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/course/admin/",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"course",
+								"admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 删除宝典",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/course/admin/d38f0319-58a9-42b0-b56b-9d1f3f052f5e",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"course",
+								"admin",
+								"d38f0319-58a9-42b0-b56b-9d1f3f052f5e"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 创建宝典",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"床脚宝典1\",\r\n    \"content\": \"创建的内容\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/course/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"course",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "doorTask",
+			"item": [
+				{
+					"name": "创建门任务 - admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjExMDM1NDIyLCJleHAiOjE2MTExMjE4MjJ9.vHVhyfEyoI3uFb8YoS8f9AA6si9mRHL9pIpXgvPf0vk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"门任务001\",\r\n    \"task_detail\": \"这是详细内容, 将来是 html 交给前端渲染\",\r\n    \"price\": 4,\r\n    \"surplus\": 151,\r\n    \"task_catetory\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/door/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "门任务列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/door?limit=10&offset=1&sort=surplus&order=ASC&classify=",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "surplus"
+								},
+								{
+									"key": "order",
+									"value": "ASC"
+								},
+								{
+									"key": "classify",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "获取指定门任务",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/door/ad1ae560-59f6-11eb-acc7-772c08a62416",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door",
+								"ad1ae560-59f6-11eb-acc7-772c08a62416"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "提交门任务",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjExMDI1NjI1LCJleHAiOjE2MTExMTIwMjV9.mpDRVdd6JuP09Gd623ORyjTsgx8PODCvpLahN-dTaRA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"task_id\": \"4a2e7eb0-5a1b-11eb-99ad-9f8e6916d69b\",\r\n    \"content\": \"提交的内容\",\r\n    \"images\": \"['xxx.jpg']\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/door/submit",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door",
+								"submit"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "practice",
+			"item": [
+				{
+					"name": "admin - 创建实习/兼职",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyNDIwMTU3LCJleHAiOjE2MTI1MDY1NTd9.e2gpt2IymgqEH1J-dvAcmuLaJ5dBfO55aD3HIWzweqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category\": \"设计\",\r\n    \"salary\": 160,\r\n    \"begin_time\": 1615478400000,\r\n    \"end_time\": 1616169600000,\r\n    \"shop_img\": \"xxx.png\",\r\n    \"shop_name\": \"xxx有限公司\",\r\n    \"post\": \"前端实习生\",\r\n    \"company_auth\": 1,\r\n    \"areaName\": \"浦东新区\",\r\n    \"cityName\": \"上海市\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/prictice/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"prictice",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 修改实习/兼职",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyNDIwMTU3LCJleHAiOjE2MTI1MDY1NTd9.e2gpt2IymgqEH1J-dvAcmuLaJ5dBfO55aD3HIWzweqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"ee533cb0-5af2-11eb-8a02-a5abef532bfb\",\r\n    \"category\": \"设计\",\r\n    \"salary\": 160,\r\n    \"begin_time\": 1615478400000,\r\n    \"end_time\": 1616169600000,\r\n    \"shop_img\": \"xxx.png\",\r\n    \"shop_name\": \"xxx有限公司\",\r\n    \"post\": \"前端大佬\",\r\n    \"company_auth\": 1,\r\n    \"areaName\": \"浦东新区\",\r\n    \"cityName\": \"上海市\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/prictice/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"prictice",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "实习/兼职列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8089/prictice?offset=1&limit=100&sort=begin_time&order=desc",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"prictice"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "sort",
+									"value": "begin_time"
+								},
+								{
+									"key": "order",
+									"value": "desc"
+								},
+								{
+									"key": "category",
+									"value": "设计",
+									"disabled": true
+								},
+								{
+									"key": "salary",
+									"value": "1,1000",
+									"disabled": true
+								},
+								{
+									"key": "begin_time",
+									"value": "1615478400000",
+									"disabled": true
+								},
+								{
+									"key": "end_time",
+									"value": "1616169600000",
+									"disabled": true
+								},
+								{
+									"key": "area_name",
+									"value": "浦东新区",
+									"disabled": true
+								},
+								{
+									"key": "admin",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "筛选分类项",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/prictice/classify",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"prictice",
+								"classify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "兼职地址分类列表",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/prictice/city/classify?city_name=上海市",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"prictice",
+								"city",
+								"classify"
+							],
+							"query": [
+								{
+									"key": "city_name",
+									"value": "上海市"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 删除实习/兼职",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyNDIwMTU3LCJleHAiOjE2MTI1MDY1NTd9.e2gpt2IymgqEH1J-dvAcmuLaJ5dBfO55aD3HIWzweqg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/prictice/admin/ee533cb0-5af2-11eb-8a02-a5abef532bfb",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"prictice",
+								"admin",
+								"ee533cb0-5af2-11eb-8a02-a5abef532bfb"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
