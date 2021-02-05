@@ -45,35 +45,6 @@ class PricticeService {
       }
     }
   }
-
-  async createPrictice(ctx) {
-    const {
-      category,
-      salary,
-      begin_time,
-      end_time,
-      shop_img,
-      shop_name,
-      post,
-      company_auth,
-      cityName,
-      areaName,
-    } = ctx.request.body;
-    const data = await Prictice.create({
-      category,
-      salary,
-      begin_time,
-      end_time,
-      shop_img,
-      shop_name,
-      post,
-      company_auth,
-      cityName,
-      areaName,
-    });
-    return { info: { ...data.toJSON() } };
-  }
-
   async getPrictice(ctx) {
     /**
      * @param limit 每页条目数
@@ -95,7 +66,8 @@ class PricticeService {
       salary,
       begin_time,
       end_time,
-      area_name
+      area_name,
+      admin
     } = ctx.query;
     // 给定初始值
     !limit ? (limit = 10) : (limit = parseInt(limit));
@@ -130,17 +102,87 @@ class PricticeService {
     } else {
       sql = { limit, offset: (offset - 1) * limit, order: [[sort, order]] };
     }
-
-    const total = await Prictice.count();
+    // 如果传入了admin字段就代表是admin调用这个接口
+    let total;
+    if (admin) {
+      total = await Prictice.count({paranoid: false})
+      sql.paranoid = false
+    } else {
+      total = await Prictice.count();
+    }
     const data = await Prictice.findAll(sql);
     return {
       total,
       isNext:
-        data.length > limit * (offset - 1 === 0 ? 1 : offset - 1)
+        total > limit * (offset - 1 === 0 ? 1 : offset - 1)
           ? true
           : false,
       rows: [...data],
     };
+  }
+
+  // admin 
+  async addAdminPrictice(ctx) {
+    const {
+      category,
+      salary,
+      begin_time,
+      end_time,
+      shop_img,
+      shop_name,
+      post,
+      company_auth,
+      cityName,
+      areaName,
+    } = ctx.request.body;
+    const data = await Prictice.create({
+      category,
+      salary,
+      begin_time,
+      end_time,
+      shop_img,
+      shop_name,
+      post,
+      company_auth,
+      cityName,
+      areaName,
+    });
+    return { info: { ...data.toJSON() } };
+  }
+  async setAdminPrictice(ctx) {
+    const {
+      id,
+      category,
+      salary,
+      begin_time,
+      end_time,
+      shop_img,
+      shop_name,
+      post,
+      company_auth,
+      cityName,
+      areaName,
+    } = ctx.request.body;
+    await Prictice.update({
+      category,
+      salary,
+      begin_time,
+      end_time,
+      shop_img,
+      shop_name,
+      post,
+      company_auth,
+      cityName,
+      areaName,
+    }, { where: { id } });
+    const data = await Prictice.findOne({ where: { id } });
+    return { info: { ...data.toJSON() } };
+  }
+  async delAdminPrictice(ctx) {
+    const ids = ctx.params.id.split(",");
+    for (let i = 0; i < ids.length; i++) {
+      await Prictice.destroy({ where: { id: ids[i] } });
+    }
   }
 }
 
