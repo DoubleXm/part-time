@@ -3,7 +3,7 @@ module.exports = {
     host: "localhost",
     port: "3306",
     username: "root",
-    password: "xm131400",
+    password: "123456",
     database: "part_time",
   },
   secret: "part-time-key",
