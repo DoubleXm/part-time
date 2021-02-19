@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "82904925-9b5d-42ce-886f-500a2d412c09",
+		"_postman_id": "e23fa1fe-c107-4506-afda-e443ea1dcfb4",
 		"name": "part-time",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,7 +15,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"phone_number\": \"18516321273\",\r\n    \"password\": \"123456\"\r\n}",
+							"raw": "{\r\n    \"phone_number\": \"17521854869\",\r\n    \"password\": \"123465\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -691,14 +691,14 @@
 			"name": "doorTask",
 			"item": [
 				{
-					"name": "创建门任务 - admin",
+					"name": "admin - 创建门任务",
 					"request": {
 						"auth": {
 							"type": "bearer",
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjExMDM1NDIyLCJleHAiOjE2MTExMjE4MjJ9.vHVhyfEyoI3uFb8YoS8f9AA6si9mRHL9pIpXgvPf0vk",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxNzUyMTg1NDg2OSIsInBhc3N3b3JkIjoiMTIzNDY1IiwiaWF0IjoxNjEyNzcyNzIxLCJleHAiOjE2MTI4NTkxMjF9.iD4ebw7J33Vwwb7UNwxLs2yDNkMfo0NPzdQ-m6uJWLQ",
 									"type": "string"
 								}
 							]
@@ -707,7 +707,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"门任务001\",\r\n    \"task_detail\": \"这是详细内容, 将来是 html 交给前端渲染\",\r\n    \"price\": 4,\r\n    \"surplus\": 151,\r\n    \"task_catetory\": 5\r\n}",
+							"raw": "{\r\n    \"title\": \"门任务011\",\r\n    \"task_detail\": \"这是详细内容, 将来是 html 交给前端渲染\",\r\n    \"price\": 4,\r\n    \"surplus\": 151,\r\n    \"task_catetory\": 5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -734,7 +734,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8089/door?limit=10&offset=1&sort=surplus&order=ASC&classify=",
+							"raw": "localhost:8089/door?limit=20&offset=1&sort=surplus&order=ASC&classify=&admin=1",
 							"host": [
 								"localhost"
 							],
@@ -745,7 +745,7 @@
 							"query": [
 								{
 									"key": "limit",
-									"value": "10"
+									"value": "20"
 								},
 								{
 									"key": "offset",
@@ -762,6 +762,10 @@
 								{
 									"key": "classify",
 									"value": ""
+								},
+								{
+									"key": "admin",
+									"value": "1"
 								}
 							]
 						}
@@ -774,14 +778,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:8089/door/ad1ae560-59f6-11eb-acc7-772c08a62416",
+							"raw": "localhost:8089/door/33b1bc20-69e7-11eb-9603-67d7707b886e",
 							"host": [
 								"localhost"
 							],
 							"port": "8089",
 							"path": [
 								"door",
-								"ad1ae560-59f6-11eb-acc7-772c08a62416"
+								"33b1bc20-69e7-11eb-9603-67d7707b886e"
 							]
 						}
 					},
@@ -795,7 +799,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjExMDI1NjI1LCJleHAiOjE2MTExMTIwMjV9.mpDRVdd6JuP09Gd623ORyjTsgx8PODCvpLahN-dTaRA",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxNzUyMTg1NDg2OSIsInBhc3N3b3JkIjoiMTIzNDY1IiwiaWF0IjoxNjEyNzcyNzIxLCJleHAiOjE2MTI4NTkxMjF9.iD4ebw7J33Vwwb7UNwxLs2yDNkMfo0NPzdQ-m6uJWLQ",
 									"type": "string"
 								}
 							]
@@ -804,7 +808,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"task_id\": \"4a2e7eb0-5a1b-11eb-99ad-9f8e6916d69b\",\r\n    \"content\": \"提交的内容\",\r\n    \"images\": \"['xxx.jpg']\"\r\n}",
+							"raw": "{\r\n    \"task_id\": \"3d08c980-69e7-11eb-9603-67d7707b886e\",\r\n    \"content\": \"提交的内容1\",\r\n    \"images\": \"['xxx.jpg']\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -824,6 +828,209 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "admin - 门任务修改",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxNzUyMTg1NDg2OSIsInBhc3N3b3JkIjoiMTIzNDY1IiwiaWF0IjoxNjEyNzcyNzIxLCJleHAiOjE2MTI4NTkxMjF9.iD4ebw7J33Vwwb7UNwxLs2yDNkMfo0NPzdQ-m6uJWLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"8f7fa3b0-69eb-11eb-81e8-f5bece1d9784\",\r\n    \"title\": \"门任务修改\",\r\n    \"task_detail\": \"这是详细内容, 将来是 html 交给前端渲染\",\r\n    \"price\": 4,\r\n    \"surplus\": 151,\r\n    \"task_catetory\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/door/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 删除门任务",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxNzUyMTg1NDg2OSIsInBhc3N3b3JkIjoiMTIzNDY1IiwiaWF0IjoxNjEyNzcyNzIxLCJleHAiOjE2MTI4NTkxMjF9.iD4ebw7J33Vwwb7UNwxLs2yDNkMfo0NPzdQ-m6uJWLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/door/admin?id=8f7fa3b0-69eb-11eb-81e8-f5bece1d9784",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door",
+								"admin"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "8f7fa3b0-69eb-11eb-81e8-f5bece1d9784"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 门任务提交列表",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxNzUyMTg1NDg2OSIsInBhc3N3b3JkIjoiMTIzNDY1IiwiaWF0IjoxNjEyNzcyNzIxLCJleHAiOjE2MTI4NTkxMjF9.iD4ebw7J33Vwwb7UNwxLs2yDNkMfo0NPzdQ-m6uJWLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost:8089/door/admin/submit?limit=10&offset=1&order=DESC&sort=update_at",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door",
+								"admin",
+								"submit"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "1"
+								},
+								{
+									"key": "order",
+									"value": "DESC"
+								},
+								{
+									"key": "sort",
+									"value": "update_at"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 删除门任务提交记录",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxNzUyMTg1NDg2OSIsInBhc3N3b3JkIjoiMTIzNDY1IiwiaWF0IjoxNjEyNzcyNzIxLCJleHAiOjE2MTI4NTkxMjF9.iD4ebw7J33Vwwb7UNwxLs2yDNkMfo0NPzdQ-m6uJWLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8089/door/admin/submit?id=c9d14f10-69ef-11eb-a749-b92a1837a4a6",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door",
+								"admin",
+								"submit"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "c9d14f10-69ef-11eb-a749-b92a1837a4a6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "admin - 修改门任务提交状态",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxNzUyMTg1NDg2OSIsInBhc3N3b3JkIjoiMTIzNDY1IiwiaWF0IjoxNjEyNzcyNzIxLCJleHAiOjE2MTI4NTkxMjF9.iD4ebw7J33Vwwb7UNwxLs2yDNkMfo0NPzdQ-m6uJWLQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"c5869b20-69f1-11eb-90ef-25ee79541bdb\",\r\n    \"status\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8089/door/admin/submit",
+							"host": [
+								"localhost"
+							],
+							"port": "8089",
+							"path": [
+								"door",
+								"admin",
+								"submit"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -838,7 +1045,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxODUxNjMyMTI3MyIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjEyNDIwMTU3LCJleHAiOjE2MTI1MDY1NTd9.e2gpt2IymgqEH1J-dvAcmuLaJ5dBfO55aD3HIWzweqg",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwaG9uZV9udW1iZXIiOiIxNzUyMTg1NDg2OSIsInBhc3N3b3JkIjoiMTIzNDY1IiwiaWF0IjoxNjEzNzM5OTMyLCJleHAiOjE2MTM4MjYzMzJ9.-l6krFL2i-Adg3hXjs87315LLPzTx0dk05UeBXEUXGw",
 									"type": "string"
 								}
 							]
@@ -847,7 +1054,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category\": \"设计\",\r\n    \"salary\": 160,\r\n    \"begin_time\": 1615478400000,\r\n    \"end_time\": 1616169600000,\r\n    \"shop_img\": \"xxx.png\",\r\n    \"shop_name\": \"xxx有限公司\",\r\n    \"post\": \"前端实习生\",\r\n    \"company_auth\": 1,\r\n    \"areaName\": \"浦东新区\",\r\n    \"cityName\": \"上海市\"\r\n}",
+							"raw": "{\r\n    \"category\": \"设计\",\r\n    \"salary\": 160,\r\n    \"begin_time\": 1615478400000,\r\n    \"end_time\": 1616169600000,\r\n    \"shop_img\": \"xxx.png\",\r\n    \"shop_name\": \"xxx有限公司\",\r\n    \"post\": \"前端不到十\",\r\n    \"company_auth\": 1,\r\n    \"areaName\": \"浦东新区\",\r\n    \"cityName\": \"上海市\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -919,7 +1126,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "localhost:8089/prictice?offset=1&limit=100&sort=begin_time&order=desc",
+							"raw": "localhost:8089/prictice?offset=1&limit=100&sort=begin_time&order=desc&post=十",
 							"host": [
 								"localhost"
 							],
@@ -973,6 +1180,10 @@
 									"key": "admin",
 									"value": "1",
 									"disabled": true
+								},
+								{
+									"key": "post",
+									"value": "十"
 								}
 							]
 						}
