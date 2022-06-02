@@ -1,9 +1,9 @@
 module.exports = {
   db: {
-    host: "localhost",
+    host: "106.14.185.47",
     port: "3306",
     username: "root",
-    password: "123456",
+    password: "xm131400",
     database: "part_time",
   },
   secret: "part-time-key",
